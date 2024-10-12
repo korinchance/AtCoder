@@ -1,20 +1,15 @@
-S, T = input().split()
-Slist = list(S)
-Tlist = list(T)
-x = len(T)-1
-sumlist = []
+#chataptあり
+s, t = list(map(str, input().split()))
 
-for i in range(len(T)):
-    if Tlist[i] not in Slist:
-        print('No')
-        exit()
-if len(T) == 1:
-    if T == Slist[len(S)-1]:
-        print('No')
-    else:
-        print('Yes')
-else:
-    for i in range(len(T)):
-        
-    
-        
+len_s = len(s)
+
+for w in range(len_s):
+    for c in range(1, w+1):
+        candidate = ""
+        for i in range(c-1, len_s, w):
+            candidate += s[i]
+        if candidate == t:
+            print('Yes')
+            exit()
+            
+print('No')

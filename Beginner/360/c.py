@@ -1,13 +1,18 @@
-if len(T) == 1:
-    if T not in Slist or T == Slist[len(S)-1]:
-        print('No')
+#ひろむあり
+n = int(input())
+a = list(map(int,input().split()))
+w = list(map(int,input().split()))
+a_w = {}
+
+answer = sum(w)
+
+for i in range(n):
+    if not a[i] in a_w:
+        a_w[a[i]] = [w[i]]
     else:
-        print('Yes')
-else:
-    while 
-    Tlist[0] in Slist and Tlist[0] in Slist:
-    x = Slist.index(Tlist[1]) - Slist.index(Tlist[0])
-    while        
-        if Tlist[0] in Slist:
-    if T
-else:
+        a_w[a[i]].append(w[i])
+    
+for values in a_w.values():
+    answer -= max(values)
+    
+print(answer)

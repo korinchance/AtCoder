@@ -1,33 +1,22 @@
-import math
-
 m = int(input())
 
+remain = m
 n = 20
-x = 10
-    
-place = 0
-list = [3**10] * n
-count = 0
-while True:
-    if sum(list) == m:
-        answerlist = []
-        for s in list:
-            answer = int(math.log(s, 3))
-            answerlist.append(answer)
-        print(n)
-        print(*answerlist)
-        break
-    elif x >= 1:
-        x -= 1
-        a = 3 ** x
-        list[place] = a
-    else:
-        if place < n-1:
-            x = 10
-            place += 1
+a_list = [0]*n
+answer_list = []
+
+for i in range(n):
+    a = 10
+    for x in range(10):
+        if remain < 3**a:
+            a -= 1
         else:
-            x = 10
-            place = 0
-            n -= 1
-            list = [3**10] * n
-            
+            break
+    a_list[i] = a
+    remain -= 3**a
+    answer_list.append(a_list[i])
+    if remain == 0:
+        break
+    
+print(len(answer_list))
+print(*answer_list)
